@@ -22,7 +22,7 @@ Este proyecto se encuentra dividido en tres módulos principales, cada uno desar
 
 ## 🛠️ Arquitectura general
 
-![Arquitectura](/assets/Arquitectura_NETUSER.png)
+![Arquitectura](/assets/Arquitectura_NETUSERv2.png)
 
 
 1. Recolección de métricas
