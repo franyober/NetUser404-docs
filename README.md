@@ -22,11 +22,47 @@ Este proyecto se encuentra dividido en tres módulos principales, cada uno desar
 
 ## 🛠️ Arquitectura general
 
-1. El cliente instalado en el equipo del usuario mide métricas de conectividad.
+![Arquitectura](/assets/Arquitectura_NETUSER.png)
 
-2. Los datos se envían a la API de almacenamiento vía HTTP.
 
-3. La API guarda los registros en una base de datos MongoDB.
+1. Recolección de métricas
 
-4. El módulo de visualización consulta los datos a partir de la API y presenta reportes interactivos.
+* El sensor de red NetUser404 (ejecutándose en un dispositivo como una Raspberry Pi) mide de forma periódica la calidad de la conexión a internet.
+
+* Estas métricas son enviadas a la API NetUser404-api utilizando solicitudes HTTP.
+
+2. Almacenamiento de métricas
+
+* La API NetUser404-api procesa las métricas recibidas.
+
+* Los datos validados se insertan en una base de datos MongoDB
+
+
+3. Consulta de métricas almacenadas
+
+* La API NetUser404-api expone múltiples endpoints para consultar la información almacenada en MongoDB.
+
+* Estos endpoints permiten:
+
+  * Consultar registros filtrados por fecha, BSSID, MAC o URL.
+
+  * Obtener estadísticas agregadas (por ejemplo, promedio de latencias o distribución de códigos HTTP).
+
+4. Solicitud de datos desde el dashboard
+
+* El dashboard NetUser404-visual, que se ejecuta como una aplicación web, realiza peticiones HTTP hacia la API NetUser404-api.
+
+* El dashboard consulta métricas de conectividad necesarias para generar visualizaciones dinámicas.
+
+5. Visualización y análisis de datos
+
+* Un Administrador accede al Dashboard NetUser404-visual a través de su navegador web.
+
+* Desde la interfaz gráfica puede:
+
+  * Seleccionar filtros de fecha, dispositivo, red y URL.
+
+  * Visualizar gráficos de latencia, velocidad de descarga, tiempos de carga, y distribución de códigos de estado.
+
+  * Analizar tendencias de rendimiento de la red con herramientas visuales intuitivas.
 
