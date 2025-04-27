@@ -24,45 +24,52 @@ Este proyecto se encuentra dividido en tres módulos principales, cada uno desar
 
 ![Arquitectura](/assets/Arquitectura_NETUSERv2.png)
 
-
+----
 1. Recolección de métricas
 
-* El sensor de red NetUser404 (ejecutándose en un dispositivo como una Raspberry Pi) mide de forma periódica la calidad de la conexión a internet.
+  * El sensor de red NetUser404 (ejecutándose en un dispositivo como una Raspberry Pi) mide de forma periódica la calidad de la conexión a internet.
 
-* Estas métricas son enviadas a la API NetUser404-api utilizando solicitudes HTTP.
+  * Estas métricas son enviadas a la API NetUser404-api utilizando solicitudes HTTP.
+
+----
 
 2. Almacenamiento de métricas
 
-* La API NetUser404-api procesa las métricas recibidas.
+  * La API NetUser404-api procesa las métricas recibidas.
 
-* Los datos validados se insertan en una base de datos MongoDB
+  * Los datos validados se insertan en una base de datos MongoDB
 
+----
 
 3. Consulta de métricas almacenadas
 
-* La API NetUser404-api expone múltiples endpoints para consultar la información almacenada en MongoDB.
+  * La API NetUser404-api expone múltiples endpoints para consultar la información almacenada en MongoDB.
 
-* Estos endpoints permiten:
+  * Estos endpoints permiten:
 
-  * Consultar registros filtrados por fecha, BSSID, MAC o URL.
+    * Consultar registros filtrados por fecha, BSSID, MAC o URL.
 
-  * Obtener estadísticas agregadas (por ejemplo, promedio de latencias o distribución de códigos HTTP).
+    * Obtener estadísticas agregadas (por ejemplo, promedio de latencias o distribución de códigos HTTP).
+
+----
 
 4. Solicitud de datos desde el dashboard
 
-* El dashboard NetUser404-visual, que se ejecuta como una aplicación web, realiza peticiones HTTP hacia la API NetUser404-api.
+  * El dashboard NetUser404-visual, que se ejecuta como una aplicación web, realiza peticiones HTTP hacia la API NetUser404-api.
 
-* El dashboard consulta métricas de conectividad necesarias para generar visualizaciones dinámicas.
+  * El dashboard consulta métricas de conectividad necesarias para generar visualizaciones dinámicas.
+
+----
 
 5. Visualización y análisis de datos
 
-* Un Administrador accede al Dashboard NetUser404-visual a través de su navegador web.
+  * Un Administrador accede al Dashboard NetUser404-visual a través de su navegador web.
 
-* Desde la interfaz gráfica puede:
+  * Desde la interfaz gráfica puede:
 
-  * Seleccionar filtros de fecha, dispositivo, red y URL.
+    * Seleccionar filtros de fecha, dispositivo, red y URL.
 
-  * Visualizar gráficos de latencia, velocidad de descarga, tiempos de carga, y distribución de códigos de estado.
+    * Visualizar gráficos de latencia, velocidad de descarga, tiempos de carga, y distribución de códigos de estado.
 
-  * Analizar tendencias de rendimiento de la red con herramientas visuales intuitivas.
+    * Analizar tendencias de rendimiento de la red con herramientas visuales intuitivas.
 
